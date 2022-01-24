@@ -50,16 +50,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     }
 }
 ?>
-<?php require 'layout/header.php'; ?>
-<main class="pt-5 text-center">
-    <p class="lead">
-        Are you sure that you want to delete <span class="fw-bold"><?php echo $row['first_name']?> <?php echo $row['last_name'] ?: '' ?></span> from you contacts list?
-    </p>
-    <p>
-        <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
-            <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-            <button type="submit" name="submit" class="btn btn-lg btn-outline-danger">Delete Contact</button>
-        </form>
-    </p>
-</main>
-<?php require 'layout/footer.php'; ?>
+<?php require 'views/delete.view.php'; //Load the view file ?>
+
