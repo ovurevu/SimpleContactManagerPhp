@@ -15,12 +15,12 @@
                 <div class="alert alert-danger text-center" role="alert"><?= $_SESSION['error'] ?></div>
                 <?php unset($_SESSION['error']); ?>
             <?php endif; ?>
-            <?php while ($row = mysqli_fetch_array($result)): ?>
+            <?php foreach ($contacts as $contact): ?>
                 <div class="card mb-2">
                     <div class="card-body row">
                         <div class="col-10">
-                            <h5 class="card-title"><?= $row['first_name'] ?> <?= $row['last_name'] ?></h5>
-                            <p class="card-text"><?= $row['phone_number'] ?></p>
+                            <h5 class="card-title"><?= $contact->first_name ?> <?= $contact->last_name ?></h5>
+                            <p class="card-text"><?= $contact->phone_number ?></p>
                         </div>
                         <div class="col-2">
                             <div class="dropdown float-end">
@@ -29,17 +29,17 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="edit.php?id=<?= $row['id'] ?>">Edit</a>
+                                        <a class="dropdown-item" href="edit.php?id=<?= $contact->id ?>">Edit</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="delete.php?id=<?= $row['id'] ?>">Delete</a>
+                                        <a class="dropdown-item" href="delete.php?id=<?= $contact->id ?>">Delete</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php endwhile; ?>
+            <?php endforeach; ?>
         </main>
     <?php else: //If there are zero contacts?>
         <main class="pt-5 text-center">
@@ -51,7 +51,6 @@
             </p>
         </main>
     <?php endif; ?>
-    <?php mysqli_free_result($result); //free result set ?>
 <?php else: //If there was a bad db connection?>
     <main class="pt-5 text-center">
         <p class="lead">

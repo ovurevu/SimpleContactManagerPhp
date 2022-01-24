@@ -1,9 +1,9 @@
 <?php
 session_start();
 //include config file
-require_once ('helpers/db_config.php');
+require 'helpers/db_config.php';
 
-// Attempt select query execution
+// Write SQL query
 $sql = "SELECT * FROM contacts";
 
 //Variable to determine if there are contacts or not
@@ -11,13 +11,21 @@ $zeroContacts = true;
 //Variable to determine if the connection was successful
 $dataLink = false;
 
-if($result = mysqli_query($link, $sql)){
+//Prepare Query
+$statement = $pdo->prepare($sql);
+
+//Execute Statement
+if($statement->execute()){
     $dataLink = true;
-    if(mysqli_num_rows($result) > 0) {
+
+    //Fetch result as objects, can also be fetched as array or loaded into a class
+    $contacts = $statement->fetchAll(PDO::FETCH_OBJ);
+
+    if($contacts) {
         $zeroContacts = false;
     }
-    mysqli_close($link); //Close db connection
 }
 ?>
+
 <?php require 'views/index.view.php'; //Load the view file ?>
 

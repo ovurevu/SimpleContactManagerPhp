@@ -9,13 +9,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
 
     //Prepare SQL query
     $sql = 'delete from contacts where id = '.$id;
-    //Perform query
-    if($result = mysqli_query($link, $sql)) {
+
+    //Prepare Query
+    $statement = $pdo->prepare($sql);
+
+    //Execute Statement
+    if($statement->execute()){
         $_SESSION['success'] = 'Contact deleted successfully!';
         //Redirect to index
         header('location:index.php');
-        //Free result set
-        mysqli_free_result($result);
         exit();
     } else {
         $_SESSION['error'] = 'Unable to delete the contact. You could try again.';
@@ -23,8 +25,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
         header('location:index.php');
         exit();
     }
-    // Close connection
-    mysqli_close($link);
 } else {
     // Check existence of id parameter before processing further
     if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
@@ -33,15 +33,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
 
         // Prepare a select statement
         $sql = "SELECT * FROM contacts WHERE id = " . $id;
-        if ($result = mysqli_query($link, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_array($result);
-            }
-            //Free result set
-            mysqli_free_result($result);
+
+        //Prepare Query
+        $statement = $pdo->prepare($sql);
+
+        //Execute Statement
+        if($statement->execute()){
+            //Fetch result
+            $contact = $statement->fetch(PDO::FETCH_OBJ);
         }
-        // Close connection
-        mysqli_close($link);
     } else {
         $_SESSION['error'] = 'Something went horribly wrong with the last action!';
         //Redirect to index

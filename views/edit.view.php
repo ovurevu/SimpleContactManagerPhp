@@ -7,7 +7,7 @@
         <h1 class="h4 mb-3 fw-normal">Update Contact</h1>
 
         <div class="form-floating mb-3">
-            <input type="text" name="first-name" class="form-control" id="first-name" placeholder="First Name" value="<?= $row['first_name']?>" required>
+            <input type="text" name="first-name" class="form-control" id="first-name" placeholder="First Name" value="<?= $contact->first_name?>" required>
             <label for="first-name">First Name</label>
             <div class="invalid-feedback">
                 Please enter a first name.
@@ -15,12 +15,12 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" name="last-name" class="form-control" id="last-name" placeholder="Last Name" value="<?= $row['last_name']?>">
+            <input type="text" name="last-name" class="form-control" id="last-name" placeholder="Last Name" value="<?= $contact->last_name?> ">
             <label for="last-name">Last Name</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" name="phone-number" class="form-control" id="phone-number" placeholder="Phone Number" value="<?= $row['phone_number']?>" required>
+            <input type="text" name="phone-number" class="form-control" id="phone-number" placeholder="Phone Number" value="<?= $contact->phone_number?>" required>
             <label for="phone-number">Phone Number</label>
             <div class="invalid-feedback">
                 Please enter a phone number.
