@@ -1,10 +1,10 @@
 <?php
 session_start();
-require 'helpers/db_config.php';
+require 'database/Connection.php';
 require 'helpers/helper_functions.php';
 require 'models/Contact.php'; //Bring in the model
 
-$pdo = connectDb(); //new PDO connection
+$pdo = Connection::connect(); //new PDO connection
 
 // Define variables and initialize with empty values
 $first_name = $last_name = $phone_number = "";

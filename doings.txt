@@ -6,3 +6,5 @@ Stage 6:
 Stage 7:
     -Refactored Create contact process, Edit contact process and Delete contact process to static methods in the class and used them in the controllers
     -Created a helper_functions file with a redirect-to-index function and implemented this function across all controller files.
+Stage 8:
+    -Created a dedicated Connection class in a new database directory with a connect() static function and implemented this everywhere.

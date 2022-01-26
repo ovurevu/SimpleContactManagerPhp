@@ -1,10 +1,10 @@
 <?php
 session_start();
-require 'helpers/db_config.php';
+require 'database/Connection.php';
 require 'helpers/helper_functions.php';
 require 'models/Contact.php'; //Bring in the model
 
-$pdo = connectDb(); //new PDO connection
+$pdo = Connection::connect(); //new PDO connection
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_POST["id"]) && !empty($_POST["id"])){

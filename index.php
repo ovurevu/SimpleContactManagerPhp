@@ -1,9 +1,9 @@
 <?php
 session_start();
 require 'models/Contact.php'; //Bring in the model
-require 'helpers/db_config.php';
+require 'database/Connection.php';
 
-$pdo = connectDb(); //new PDO connection
+$pdo = Connection::connect(); //new PDO connection
 
 //Variable to determine if there are contacts or not
 $zeroContacts = true;
