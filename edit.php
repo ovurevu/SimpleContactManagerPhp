@@ -1,6 +1,9 @@
 <?php
 session_start();
 require 'helpers/db_config.php';
+require 'models/Contact.php'; //Bring in the model
+
+$pdo = connectDb(); //new PDO connection
 
 // Define variables and initialize with empty values
 $first_name = $last_name = $phone_number = "";
@@ -34,18 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     if(isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         // Get URL parameter
         $id = trim($_GET["id"]);
-
-        // Prepare a select statement
-        $sql = "SELECT * FROM contacts WHERE id = " . $id;
-
-        //Prepare Query
-        $statement = $pdo->prepare($sql);
-
-        //Execute Statement
-        if($statement->execute()){
-            //Fetch result
-            $contact = $statement->fetch(PDO::FETCH_OBJ);
-        }
+        $contact = Contact::fetchContactById($pdo, $id);
     } else {
         $_SESSION['error'] = 'Something went horribly wrong with the last action!';
         //Redirect to index

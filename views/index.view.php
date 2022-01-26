@@ -1,6 +1,5 @@
 <?php require 'layout/header.php' ?>
-<?php if ($dataLink): //If there is a connection ?>
-    <?php if (!$zeroContacts): //If the contacts are more than zero?>
+<?php if (!$zeroContacts): //If the contacts are more than zero?>
         <main>
             <div class="d-flex pb-3">
                 <a href="create.php" class="btn btn-primary px-4 ms-auto">Create New</a>
@@ -51,11 +50,4 @@
             </p>
         </main>
     <?php endif; ?>
-<?php else: //If there was a bad db connection?>
-    <main class="pt-5 text-center">
-        <p class="lead">
-            Oops! Something went wrong and the records could not be retrieved. Try again later.
-        </p>
-    </main>
-<?php endif; ?>
 <?php require 'layout/footer.php' ?>

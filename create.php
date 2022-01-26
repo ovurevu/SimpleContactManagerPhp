@@ -2,6 +2,8 @@
 session_start();
 require 'helpers/db_config.php';
 
+$pdo = connectDb(); //new PDO connection
+
 // Define variables and initialize with empty values
 $first_name = $last_name = $phone_number = "";
 

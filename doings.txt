@@ -1,0 +1,5 @@
+Stage 6:
+    -Converted db connection to a function that returns new PDO to get rid of hanging $pdo variable
+    -Moved the select all contacts to its model class and created it as a static method so that it can be called anywhere without instantiating(creating an object) of the class.
+    -Refactored index.php to use this static method.
+    -Created a find contact-contact-by-id static method in the model class and used it in edit.php and delete.php
