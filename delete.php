@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once ('helpers/db_config.php');
+require 'helpers/db_config.php';
+require 'helpers/helper_functions.php';
 require 'models/Contact.php'; //Bring in the model
 
 $pdo = connectDb(); //new PDO connection
@@ -10,23 +11,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     // Get hidden input value
     $id = $_POST["id"];
 
-    //Prepare SQL query
-    $sql = 'delete from contacts where id = '.$id;
-
-    //Prepare Query
-    $statement = $pdo->prepare($sql);
-
-    //Execute Statement
-    if($statement->execute()){
-        $_SESSION['success'] = 'Contact deleted successfully!';
-        //Redirect to index
-        header('location:index.php');
-        exit();
+    //Delete Contact
+    if(Contact::deleteContact($pdo, $id)){
+        redirectToIndex('success', 'Contact deleted successfully!');
     } else {
-        $_SESSION['error'] = 'Unable to delete the contact. You could try again.';
-        //Redirect to index
-        header('location:index.php');
-        exit();
+        redirectToIndex('error', 'Unable to delete the contact. You could try again.');
     }
 } else {
     // Check existence of id parameter before processing further
@@ -37,10 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
         //Get the contact
         $contact = Contact::fetchContactById($pdo, $id);
     } else {
-        $_SESSION['error'] = 'Something went horribly wrong with the last action!';
-        //Redirect to index
-        header('location:index.php');
-        exit();
+        redirectToIndex('error', 'Something went horribly wrong with the last action!');
     }
 }
 ?>

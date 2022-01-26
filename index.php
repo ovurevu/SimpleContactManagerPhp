@@ -8,7 +8,7 @@ $pdo = connectDb(); //new PDO connection
 //Variable to determine if there are contacts or not
 $zeroContacts = true;
 
-$contacts = Contact::fetchAllContacts($pdo);
+$contacts = Contact::fetchAllContacts($pdo); //Fetch all contacts
 
 if($contacts) {
     $zeroContacts = false;

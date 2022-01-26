@@ -3,3 +3,6 @@ Stage 6:
     -Moved the select all contacts to its model class and created it as a static method so that it can be called anywhere without instantiating(creating an object) of the class.
     -Refactored index.php to use this static method.
     -Created a find contact-contact-by-id static method in the model class and used it in edit.php and delete.php
+Stage 7:
+    -Refactored Create contact process, Edit contact process and Delete contact process to static methods in the class and used them in the controllers
+    -Created a helper_functions file with a redirect-to-index function and implemented this function across all controller files.

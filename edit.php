@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'helpers/db_config.php';
+require 'helpers/helper_functions.php';
 require 'models/Contact.php'; //Bring in the model
 
 $pdo = connectDb(); //new PDO connection
@@ -17,18 +18,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
-    //Prepare SQL query
-    $sql = "update contacts set first_name = '".$first_name."', last_name='".$last_name."', phone_number='".$phone_number."' where id = ".$id;
-
-    //Prepare Query
-    $statement = $pdo->prepare($sql);
-
-    //Execute Query
-    if($statement->execute()){
-        $_SESSION['success'] = 'Contact updated successfully';
-        //Redirect to index
-        header('location:index.php');
-        exit();
+    //Edit contact
+    if(Contact::editContact($pdo, $id, $first_name, $last_name, $phone_number)){
+        redirectToIndex('success', 'Contact updated successfully');
     } else {
         $error_msg = 'Unable to update this contact!';
     }
@@ -39,10 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
         $id = trim($_GET["id"]);
         $contact = Contact::fetchContactById($pdo, $id);
     } else {
-        $_SESSION['error'] = 'Something went horribly wrong with the last action!';
-        //Redirect to index
-        header('location:index.php');
-        exit();
+        redirectToIndex('error', 'Something went horribly wrong with the last action!');
     }
 }
 ?>
