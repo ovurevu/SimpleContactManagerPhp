@@ -1,6 +1,6 @@
 <?php
 session_start();
-//include config file
+require 'models/Contact.php'; //Bring in the model
 require 'helpers/db_config.php';
 
 // Write SQL query
@@ -18,8 +18,9 @@ $statement = $pdo->prepare($sql);
 if($statement->execute()){
     $dataLink = true;
 
-    //Fetch result as objects, can also be fetched as array or loaded into a class
-    $contacts = $statement->fetchAll(PDO::FETCH_OBJ);
+    /*Fetch result into the class. Before we were fetching as a generic object.
+      The advantage of this is that we can create methods in the class and use in this script. */
+    $contacts = $statement->fetchAll(PDO::FETCH_CLASS, 'Contact');
 
     if($contacts) {
         $zeroContacts = false;
