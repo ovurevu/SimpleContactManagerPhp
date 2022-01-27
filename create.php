@@ -15,8 +15,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
+    //Instantiate object
+    $contact = new Contact($first_name, $last_name, $phone_number);
+
     //Create contact
-    if(Contact::createContact($pdo, $first_name, $last_name, $phone_number)){
+    if($contact->createContact($pdo)){
         redirectToIndex('success', 'Contact saved successfully');
     } else {
         $error_msg = 'Unable to save this contact!';

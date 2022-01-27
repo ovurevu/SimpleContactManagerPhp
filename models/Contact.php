@@ -5,10 +5,16 @@ class Contact
     public $last_name;
     public $phone_number;
 
+    public function __construct($first_name, $last_name, $phone_number){
+        $this->first_name = $first_name;
+        $this->last_name =$last_name;
+        $this->phone_number = $phone_number;
+    }
+
     //Create contact function
-    public static function createContact($pdo, $first_name, $last_name, $phone_number){
+    public function createContact($pdo){
         //Prepare SQL query
-        $sql = "insert into contacts (first_name, last_name, phone_number) values ('$first_name','$last_name','$phone_number')";
+        $sql = "insert into contacts (first_name, last_name, phone_number) values ('$this->first_name','$this->last_name','$this->phone_number')";
 
         //Prepare Query
         $statement = $pdo->prepare($sql);
@@ -22,7 +28,7 @@ class Contact
         //Prepare Query
         $statement = $pdo->prepare($sql);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_CLASS, 'Contact');
+        return $statement->fetchAll(PDO::FETCH_OBJ);
     }
 
     //A static function to get a contact by id. Takes a PDO object and contact id as parameters
