@@ -8,3 +8,14 @@ Stage 7:
     -Created a helper_functions file with a redirect-to-index function and implemented this function across all controller files.
 Stage 8:
     -Created a dedicated Connection class in a new database directory with a connect() static function and implemented this everywhere.
+Stage 9:
+    -Used object instantiation in the create-contact process
+Stage 10:
+    -Moved css, js and img folders to a new assets folder to make the folder structure more tidy
+    -created a config file in the index to hold database and other config information as an assoc array
+    -Deleted db_config file in helpers as it's been replaced with a general config file in directory index
+    -Moved the database and helpers folders to a new framework folder that would hold the code for our mini framework
+    -Created a QueryBuilder class in framework/database for handling database queries in all models and classes
+    -Created a selectAll function in query builder and implemented in index.php
+    -deleted the fetchAll method in contact model class as we don't need it anymore.
+

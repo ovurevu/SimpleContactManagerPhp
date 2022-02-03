@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'database/Connection.php';
-require 'helpers/helper_functions.php';
-require 'models/Contact.php';
+require '../database/Connection.php';
+require '../helpers/helper_functions.php';
+require '../models/Contact.php';
 
 $pdo = Connection::connect(); //new PDO connection
 
@@ -26,4 +26,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     }
 }
 ?>
-<?php require 'views/create.view.php'; //Load the view file ?>
+<?php require '../views/create.view.php'; //Load the view file ?>

@@ -1,4 +1,5 @@
 <?php
+
 class Contact
 {
     public $first_name;
@@ -19,16 +20,6 @@ class Contact
         //Prepare Query
         $statement = $pdo->prepare($sql);
         return $statement->execute(); //would return true(success) or false(failure)
-    }
-
-    //A static function to get all contacts. Takes a PDO object as parameter
-    public static function fetchAllContacts($pdo) {
-        // Write SQL query
-        $sql = "SELECT * FROM contacts";
-        //Prepare Query
-        $statement = $pdo->prepare($sql);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_OBJ);
     }
 
     //A static function to get a contact by id. Takes a PDO object and contact id as parameters
