@@ -24,4 +24,7 @@ Stage 11:
     -I'll still move the controller files back to controller folder, but for now, it's easier for me to work with them in index as I don't want to have issues with requires.
     -Implemented database config information in Connection::connect() and in bootstrap file
     -Moved creation logic from the Contact model class back to create.php and used prepared statement to create a new contact
+Stage 12:
+    -moved the insert query into the QueryBuilder as a function and implemented in create.php
+
 
