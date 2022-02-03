@@ -19,7 +19,7 @@ class Contact
 
         //Prepare Query
         $statement = $pdo->prepare($sql);
-        return $statement->execute(); //would return true(success) or false(failure)
+        return $statement->execute();
     }
 
     //A static function to get a contact by id. Takes a PDO object and contact id as parameters

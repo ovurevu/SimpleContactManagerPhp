@@ -1,8 +1,13 @@
 <?php
 class Connection {
-    public static function connect(){
+    public static function connect($config){
         try {
-            return new PDO("mysql:host=localhost;dbname=contact_manager", 'root', '');
+            return new PDO(
+                $config['connection'].';dbname='.$config['name'],
+                $config['username'],
+                $config['password'],
+                $config['options']
+            );
         } catch (PDOException $e) {
             die($e->getMessage());
         }

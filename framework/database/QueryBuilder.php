@@ -1,4 +1,5 @@
 <?php
+
 class QueryBuilder {
     protected PDO $pdo; //Using type hinting
 
@@ -6,9 +7,10 @@ class QueryBuilder {
         $this->pdo = $pdo;
     }
 
-    public function selectAll($table){
+    public function selectAll($table)
+    {
         $statement= $this->pdo->prepare("select * from {$table}");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
-    }
+    } 
 }
