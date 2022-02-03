@@ -26,5 +26,8 @@ Stage 11:
     -Moved creation logic from the Contact model class back to create.php and used prepared statement to create a new contact
 Stage 12:
     -moved the insert query into the QueryBuilder as a function and implemented in create.php
-
+Stage 13:
+    -Created the selectById, update and delete methods of the QueryBuilder
+    -Implemented this methods in all the controller scripts(delete, create, edit, index)
+    -deleted all the methods in Contact class as they are no longer needed
 

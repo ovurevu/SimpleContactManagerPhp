@@ -10,14 +10,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
-    $created = $queryBuilder->insert('contacts', [
+    $create = $queryBuilder->insert('contacts', [
         'first_name' => $first_name,
         'last_name' => $last_name,
         'phone_number' => $phone_number
     ]);
 
     //Create contact
-    if($created){
+    if($create){
         redirectToIndex('success', 'Contact saved successfully');
     } else {
         $error_msg = 'Unable to save this contact!';

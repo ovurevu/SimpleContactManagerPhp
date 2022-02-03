@@ -1,10 +1,5 @@
 <?php
-session_start();
-require '../database/Connection.php';
-require '../helpers/helper_functions.php';
-require '../models/Contact.php'; //Bring in the model
-
-$pdo = Connection::connect(); //new PDO connection
+$queryBuilder = require 'bootstrap.php';
 
 // Define variables and initialize with empty values
 $first_name = $last_name = $phone_number = "";
@@ -18,8 +13,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
+    $update = $queryBuilder->update('contacts', 'id', $id, [
+        'first_name' => $first_name,
+        'last_name' => $last_name,
+        'phone_number' => $phone_number
+    ]);
+
     //Edit contact
-    if(Contact::editContact($pdo, $id, $first_name, $last_name, $phone_number)){
+    if($update){
         redirectToIndex('success', 'Contact updated successfully');
     } else {
         $error_msg = 'Unable to update this contact!';
@@ -29,11 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     if(isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         // Get URL parameter
         $id = trim($_GET["id"]);
-        $contact = Contact::fetchContactById($pdo, $id);
+        $contact = $queryBuilder->selectById('contacts', 'id', $id);
     } else {
         redirectToIndex('error', 'Something went horribly wrong with the last action!');
     }
 }
 ?>
-<?php require '../views/edit.view.php'; //Load the view file ?>
+<?php require 'views/edit.view.php'; //Load the view file ?>
 
