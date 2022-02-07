@@ -30,4 +30,11 @@ Stage 13:
     -Created the selectById, update and delete methods of the QueryBuilder
     -Implemented this methods in all the controller scripts(delete, create, edit, index)
     -deleted all the methods in Contact class as they are no longer needed
+Stage 14:
+    -moved bootstrap.php into framework folder
+    -changed the queryBuilder variable to database in index.php cos the name makes more sense
+    -Created and started working on a router class in framework folder
+    -created an index.php in controllers to start testing the router for index page only.
+    -Implemented the router in index
+
 

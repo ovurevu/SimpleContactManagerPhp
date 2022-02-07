@@ -1,15 +1,11 @@
 <?php
-$queryBuilder = require 'bootstrap.php';
+session_start();
+$database = require 'framework/bootstrap.php';
 
-$zeroContacts = true; //Variable to determine if there are contacts or not
+$router = new Router();
 
-$contacts = $queryBuilder->selectAll('contacts'); //get all contacts
+$router->define([
+    '' => 'controllers/index.php'
+]);
 
-if($contacts) {
-    $zeroContacts = false;
-}
-
-?>
-
-<?php require 'views/index.view.php'; //Load the view file ?>
-
+require $router->direct('');
