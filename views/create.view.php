@@ -3,7 +3,7 @@
     <?php if(isset($error_msg)): ?>
         <div class="alert alert-danger text-center" role="alert"><?= $error_msg ?></div>
     <?php endif; ?>
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="needs-validation" method="post" novalidate>
+    <form action="<?= htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" class="needs-validation" method="post" novalidate>
         <h1 class="h4 mb-3 fw-normal">Create New Contact</h1>
 
         <div class="form-floating mb-3">

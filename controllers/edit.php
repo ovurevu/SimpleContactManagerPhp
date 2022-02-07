@@ -1,6 +1,4 @@
 <?php
-$queryBuilder = require 'bootstrap.php';
-
 // Define variables and initialize with empty values
 $first_name = $last_name = $phone_number = "";
 
@@ -13,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
-    $update = $queryBuilder->update('contacts', 'id', $id, [
+    $update = $database->update('contacts', 'id', $id, [
         'first_name' => $first_name,
         'last_name' => $last_name,
         'phone_number' => $phone_number
@@ -30,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     if(isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         // Get URL parameter
         $id = trim($_GET["id"]);
-        $contact = $queryBuilder->selectById('contacts', 'id', $id);
+        $contact = $database->selectById('contacts', 'id', $id);
     } else {
         redirectToIndex('error', 'Something went horribly wrong with the last action!');
     }

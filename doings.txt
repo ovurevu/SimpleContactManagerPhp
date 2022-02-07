@@ -36,5 +36,10 @@ Stage 14:
     -Created and started working on a router class in framework folder
     -created an index.php in controllers to start testing the router for index page only.
     -Implemented the router in index
+Stage 15:
+    -Create post() and get() methods in the router class that we can use to specify if the request is a get or post in the routes
+    -Created get and post routes for all the expected endpoints in the main index
+    -implemented this named routes in the controller files
+    -moved all the controller scripts to the controller folder
 
 

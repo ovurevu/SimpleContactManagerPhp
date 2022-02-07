@@ -2,7 +2,7 @@
 <?php if (!$zeroContacts): //If the contacts are more than zero?>
         <main>
             <div class="d-flex pb-3">
-                <a href="create.php" class="btn btn-primary px-4 ms-auto">Create New</a>
+                <a href="create-new" class="btn btn-primary px-4 ms-auto">Create New</a>
             </div>
 
             <?php if(isset($_SESSION['success'])): ?>
@@ -28,10 +28,10 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="edit.php?id=<?= $contact->id ?>">Edit</a>
+                                        <a class="dropdown-item" href="edit-contact?id=<?= $contact->id ?>">Edit</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="delete.php?id=<?= $contact->id ?>">Delete</a>
+                                        <a class="dropdown-item" href="delete-contact?id=<?= $contact->id ?>">Delete</a>
                                     </li>
                                 </ul>
                             </div>
@@ -46,7 +46,7 @@
                 Oops! You don't have any contacts yet. Create one to get started.
             </p>
             <p>
-                <a href="create.php" class="btn btn-lg btn-outline-primary">Create New Contact</a>
+                <a href="create-new" class="btn btn-lg btn-outline-primary">Create New Contact</a>
             </p>
         </main>
     <?php endif; ?>
