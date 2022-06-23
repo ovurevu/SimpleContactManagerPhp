@@ -41,5 +41,9 @@ Stage 15:
     -Created get and post routes for all the expected endpoints in the main index
     -implemented this named routes in the controller files
     -moved all the controller scripts to the controller folder
+Stage 16:
+    -Use named variable in Router class.
+    -Created a dedicated Request class in framework folder to handle returning request type and request URI.
+    -Created a super variable $app in bootstrap to hold app level data (config and database)
 
 

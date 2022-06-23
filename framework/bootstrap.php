@@ -5,8 +5,12 @@ require 'framework/helpers/helper_functions.php';
 require 'framework/database/Connection.php';
 require 'framework/database/QueryBuilder.php';
 require 'framework/Router.php';
-$config = require 'config.php';
+require 'framework/Request.php';
 
-$pdo = Connection::connect($config['database']); //new PDO connection
+$app = []; //Initialize app variable
 
-return new QueryBuilder($pdo);
+$app['config'] = require 'config.php'; //create an entry in app for config
+
+$pdo = Connection::connect($app['config']['database']); //new PDO connection
+
+$app['database'] = new QueryBuilder($pdo); //create and entry in app for query builder

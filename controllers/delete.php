@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
     $id = $_POST["id"];
 
     //Delete Contact
-    if($database->delete('contacts', 'id', $id)){
+    if($app['database']->delete('contacts', 'id', $id)){
         redirectToIndex('success', 'Contact deleted successfully!');
     } else {
         redirectToIndex('error', 'Unable to delete the contact. You could try again.');
@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit']) && isset($_PO
         $id = trim($_GET["id"]);
 
         //Get the contact
-        $contact = $database->selectById('contacts', 'id', $id);
+        $contact = $app['database']->selectById('contacts', 'id', $id);
     } else {
         redirectToIndex('error', 'Something went horribly wrong with the last action!');
     }

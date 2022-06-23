@@ -1,7 +1,7 @@
 <?php
 class Router {
     //initialize empty arrays for get and post routes
-    protected $routes = [
+    protected array $routes = [
         'GET' => [],
         'POST' => []
     ];
