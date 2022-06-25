@@ -45,5 +45,10 @@ Stage 16:
     -Use named variable in Router class.
     -Created a dedicated Request class in framework folder to handle returning request type and request URI.
     -Created a super variable $app in bootstrap to hold app level data (config and database)
+Stage 17:
+    -Introduced Composer and autoloading
+
+
+PAT: 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
 
 

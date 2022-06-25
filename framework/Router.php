@@ -6,7 +6,6 @@ class Router {
         'POST' => []
     ];
 
-
     //use this method to populate the GET routes with key as uri and value as controller
     public function get($uri, $controller){
         $this->routes['GET'][$uri] = $controller;
@@ -24,5 +23,7 @@ class Router {
         }
 
         die('The page you are looking for does not exist');
+
+        //throw new Exception('No routes defined for this URL');
     }
 }
