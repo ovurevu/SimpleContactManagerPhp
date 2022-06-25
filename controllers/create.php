@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     $last_name = trim($_POST['last-name']);
     $phone_number = trim($_POST['phone-number']);
 
-    $create = $app['database']->insert('contacts', [
+    $create = App::get('database')->insert('contacts', [
         'first_name' => $first_name,
         'last_name' => $last_name,
         'phone_number' => $phone_number

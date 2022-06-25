@@ -3,10 +3,8 @@ session_start();
 
 require 'framework/helpers/helper_functions.php';
 
-$app = []; //Initialize app variable
+App::bind('config', require 'config.php');
 
-$app['config'] = require 'config.php';
+$pdo = Connection::connect(App::get('config')['database']); //new PDO connection
 
-$pdo = Connection::connect($app['config']['database']); //new PDO connection
-
-$app['database'] = new QueryBuilder($pdo);
+App::bind('database', new QueryBuilder($pdo));

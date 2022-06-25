@@ -47,6 +47,8 @@ Stage 16:
     -Created a super variable $app in bootstrap to hold app level data (config and database)
 Stage 17:
     -Introduced Composer and autoloading
+Stage 18:
+    -Created App class as a dependency injection Class with bind() and get() methods
 
 
 PAT: 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
