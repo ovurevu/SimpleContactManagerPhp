@@ -7,3 +7,7 @@ function redirectToIndex($session_status, $session_message){
     header('location:home');
     exit();
 }
+
+function view($view){
+    require "views/{$view}.view.php";
+}

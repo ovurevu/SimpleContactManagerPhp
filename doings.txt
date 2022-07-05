@@ -51,6 +51,8 @@ Stage 18:
     -Created App class as a dependency injection Class with bind() and get() methods
 Stage 19:
     -Created ContactsController class and started routing to it's index method.
+Stage 20:
+    -Created the remaining ContactsController class methods
 
 
 
