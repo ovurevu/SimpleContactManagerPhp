@@ -14,6 +14,7 @@ class ComposerStaticInitfdc33f3ca8166070d40a94a07a7933ed
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Connection' => __DIR__ . '/../..' . '/framework/database/Connection.php',
         'Contact' => __DIR__ . '/../..' . '/models/Contact.php',
+        'ContactsController' => __DIR__ . '/../..' . '/controllers/ContactsController.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/framework/database/QueryBuilder.php',
         'Request' => __DIR__ . '/../..' . '/framework/Request.php',
         'Router' => __DIR__ . '/../..' . '/framework/Router.php',

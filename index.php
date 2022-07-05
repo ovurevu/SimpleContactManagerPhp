@@ -6,4 +6,4 @@ $router = new Router();
 
 require 'routes.php';
 
-require $router->direct(Request::uri(), Request::type());
+return $router->direct(Request::uri(), Request::type());

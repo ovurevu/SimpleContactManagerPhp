@@ -1,5 +1,5 @@
 <?php
-$router->get('', 'controllers/index.php'); //Get index page
+$router->get('', 'ContactsController@index'); //Get index page
 $router->get('home', 'controllers/index.php'); //Get index page as home uri for redirects
 $router->get('create-new', 'controllers/create.php'); //GET create page
 $router->post('create-new', 'controllers/create.php'); //POST create page to create a new contact

@@ -9,7 +9,7 @@ Stage 7:
 Stage 8:
     -Created a dedicated Connection class in a new database directory with a connect() static function and implemented this everywhere.
 Stage 9:
-    -Used object instantiation in the create-contact process
+    -Used object instantiation in the create-contact process.
 Stage 10:
     -Moved css, js and img folders to a new assets folder to make the folder structure more tidy
     -created a config file in the index to hold database and other config information as an assoc array
@@ -49,8 +49,9 @@ Stage 17:
     -Introduced Composer and autoloading
 Stage 18:
     -Created App class as a dependency injection Class with bind() and get() methods
+Stage 19:
+    -Created ContactsController class and started routing to it's index method.
 
 
-PAT: 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
 
 

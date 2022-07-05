@@ -13,6 +13,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Connection' => $baseDir . '/framework/database/Connection.php',
     'Contact' => $baseDir . '/models/Contact.php',
+    'ContactsController' => $baseDir . '/controllers/ContactsController.php',
     'QueryBuilder' => $baseDir . '/framework/database/QueryBuilder.php',
     'Request' => $baseDir . '/framework/Request.php',
     'Router' => $baseDir . '/framework/Router.php',

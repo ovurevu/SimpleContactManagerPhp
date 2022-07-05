@@ -19,11 +19,13 @@ class Router {
     //if the request type is POST, search in routes['POST'] or vice versa for GET and return the controller
     public function direct($uri, $request_type){
         if(array_key_exists($uri, $this->routes[$request_type])){
-            return $this->routes[$request_type][$uri];
+            $controllerMethod = [];
+            $controllerMethod = explode('@', $this->routes[$request_type][$uri]);
+            $controller = new $controllerMethod[0];
+            $method = $controllerMethod[1];
+            $controller->$method();
+        } else {
+            throw new Exception('No routes defined for this URL');
         }
-
-        die('The page you are looking for does not exist');
-
-        //throw new Exception('No routes defined for this URL');
     }
 }
