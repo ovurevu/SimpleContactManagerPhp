@@ -1,8 +1,6 @@
 <?php
 namespace App\Framework;
 
-use App\Controllers\ContactsController;
-
 class Router {
     //initialize empty arrays for get and post routes
     protected array $routes = [
@@ -25,7 +23,8 @@ class Router {
         if(array_key_exists($uri, $this->routes[$request_type])){
             $controllerMethod = [];
             $controllerMethod = explode('@', $this->routes[$request_type][$uri]);
-            $controller = new ContactsController();
+            $controller = 'App\\Controllers\\'.$controllerMethod[0];
+            $controller = new $controller;
             $method = $controllerMethod[1];
             $controller->$method();
         } else {
