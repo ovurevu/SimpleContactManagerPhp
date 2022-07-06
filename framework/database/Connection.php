@@ -1,4 +1,9 @@
 <?php
+namespace App\Framework\Database;
+
+use PDO;
+use PDOException;
+
 class Connection {
     public static function connect($config){
         try {

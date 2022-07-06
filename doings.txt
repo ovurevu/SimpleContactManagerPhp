@@ -53,6 +53,9 @@ Stage 19:
     -Created ContactsController class and started routing to it's index method.
 Stage 20:
     -Created the remaining ContactsController class methods
+Stage 21:
+    -Introduced namespacing
+    -Completed the view() function.
 
 
 

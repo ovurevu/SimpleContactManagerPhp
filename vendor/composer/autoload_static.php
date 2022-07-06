@@ -7,17 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInitfdc33f3ca8166070d40a94a07a7933ed
 {
     public static $classMap = array (
-        'App' => __DIR__ . '/../..' . '/framework/App.php',
+        'App\\Controllers\\ContactsController' => __DIR__ . '/../..' . '/controllers/ContactsController.php',
+        'App\\Framework\\App' => __DIR__ . '/../..' . '/framework/App.php',
+        'App\\Framework\\Database\\Connection' => __DIR__ . '/../..' . '/framework/database/Connection.php',
+        'App\\Framework\\Database\\QueryBuilder' => __DIR__ . '/../..' . '/framework/database/QueryBuilder.php',
+        'App\\Framework\\Request' => __DIR__ . '/../..' . '/framework/Request.php',
+        'App\\Framework\\Router' => __DIR__ . '/../..' . '/framework/Router.php',
+        'App\\Models\\Contact' => __DIR__ . '/../..' . '/models/Contact.php',
         'ComposerAutoloaderInitfdc33f3ca8166070d40a94a07a7933ed' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitfdc33f3ca8166070d40a94a07a7933ed' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Connection' => __DIR__ . '/../..' . '/framework/database/Connection.php',
-        'Contact' => __DIR__ . '/../..' . '/models/Contact.php',
-        'ContactsController' => __DIR__ . '/../..' . '/controllers/ContactsController.php',
-        'QueryBuilder' => __DIR__ . '/../..' . '/framework/database/QueryBuilder.php',
-        'Request' => __DIR__ . '/../..' . '/framework/Request.php',
-        'Router' => __DIR__ . '/../..' . '/framework/Router.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,4 +1,7 @@
 <?php
+namespace App\Framework\Database;
+
+use PDO;
 
 class QueryBuilder {
     protected PDO $pdo; //Using type hinting

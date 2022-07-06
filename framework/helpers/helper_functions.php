@@ -8,6 +8,7 @@ function redirectToIndex($session_status, $session_message){
     exit();
 }
 
-function view($view){
-    require "views/{$view}.view.php";
+function view($view, $data){
+    extract($data);
+    return require "views/{$view}.view.php";
 }

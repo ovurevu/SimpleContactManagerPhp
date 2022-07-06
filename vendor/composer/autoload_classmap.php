@@ -6,15 +6,15 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App' => $baseDir . '/framework/App.php',
+    'App\\Controllers\\ContactsController' => $baseDir . '/controllers/ContactsController.php',
+    'App\\Framework\\App' => $baseDir . '/framework/App.php',
+    'App\\Framework\\Database\\Connection' => $baseDir . '/framework/database/Connection.php',
+    'App\\Framework\\Database\\QueryBuilder' => $baseDir . '/framework/database/QueryBuilder.php',
+    'App\\Framework\\Request' => $baseDir . '/framework/Request.php',
+    'App\\Framework\\Router' => $baseDir . '/framework/Router.php',
+    'App\\Models\\Contact' => $baseDir . '/models/Contact.php',
     'ComposerAutoloaderInitfdc33f3ca8166070d40a94a07a7933ed' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitfdc33f3ca8166070d40a94a07a7933ed' => $vendorDir . '/composer/autoload_static.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Connection' => $baseDir . '/framework/database/Connection.php',
-    'Contact' => $baseDir . '/models/Contact.php',
-    'ContactsController' => $baseDir . '/controllers/ContactsController.php',
-    'QueryBuilder' => $baseDir . '/framework/database/QueryBuilder.php',
-    'Request' => $baseDir . '/framework/Request.php',
-    'Router' => $baseDir . '/framework/Router.php',
 );

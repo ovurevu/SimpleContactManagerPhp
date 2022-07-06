@@ -1,4 +1,6 @@
 <?php
+namespace App\Framework;
+
 class App {
     protected static $registry = [];
 

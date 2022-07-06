@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Framework\App;
+
 class ContactsController {
 
     public function index(){
@@ -11,7 +15,10 @@ class ContactsController {
             $zeroContacts = false;
         }
 
-        require 'views/index.view.php'; //Load the view file
+//        require 'views/index.view.php'; //Load the view file
+        return view('index',
+            ['contacts' => $contacts,
+                'zeroContacts' => $zeroContacts]);
     }
 
     public function create(){
